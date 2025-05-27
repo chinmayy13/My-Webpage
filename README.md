@@ -40,18 +40,18 @@ npm install
 ```bash
 npm run dev
 ```
-Visit HTTP://localhost:5173
+Visit `http://localhost:5173`
 
 5️⃣ Build the app for production:
 ```bash
 npm run build
 ```
-This created the optimized dist/ folder
+This created the optimized  `dist/` folder
 
 6️⃣ Preview the production build locally:
 ```bash
 npm run preview
 ```
-Visit http://localhost:4173 in your browser
+Visit `http://localhost:4173` in your browser
 
 

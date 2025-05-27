@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --black: #000;
+  --white: #FFF;
+  --grey-light: #D9D9D9;
+  --grey-medium: #888;
+  --grey-dark: #333;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--grey-medium) var(--black);
+}
+
+body {
+  @apply bg-black text-white font-body antialiased;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grey-medium);
+  border-radius: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading font-medium;
+}
+
+.section {
+  @apply min-h-screen w-full py-16 px-4 md:px-8 lg:px-16 relative;
+}
+
+.vinyl-record {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2a2a2a, #404040);
+  box-shadow: 8px 8px 16px #1a1a1a,
+             -8px -8px 16px #464646;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+.vinyl-record::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle at center, #D9D9D9, #888);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.vinyl-record::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background: #333;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.vinyl-grooves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-radial-gradient(
+    circle at center,
+    #333 0px,
+    #444 1px,
+    #333 2px,
+    #333 4px
+  );
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: shimmer 3s linear infinite;
+}
+
+.digital-aura {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.aura-ring {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  transition: all 0.5s ease-in-out;
+}
+
+.rotate-vinyl {
+  animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.social-link {
+  @apply flex items-center justify-center w-12 h-12 rounded-full bg-grey-dark 
+         hover:bg-grey-medium transition-all duration-300 ease-in-out;
+}
+
+.badge {
+  @apply px-3 py-1 rounded-full text-sm inline-block border border-grey-medium mr-2 mb-2;
+}
+
+.card {
+  @apply bg-grey-dark p-6 rounded-lg transition-all duration-300 hover:translate-y-[-5px];
+}
+
+.quote {
+  @apply text-2xl md:text-3xl lg:text-4xl font-heading font-medium italic text-grey-light;
+}
+
+.meme-gallery {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+.skill-item {
+  @apply flex items-center gap-3 mb-4;
+}
+
+.project-card {
+  @apply bg-grey-dark rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
+}
